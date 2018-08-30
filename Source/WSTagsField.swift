@@ -279,6 +279,8 @@ open class WSTagsField: UIScrollView {
         if ProcessInfo.processInfo.operatingSystemVersion.majorVersion < 11, let observer = layerBoundsObserver {
             removeObserver(observer, forKeyPath: "layer.bounds")
         }
+        layerBoundsObserver?.invalidate()
+        layerBoundsObserver = nil
     }
 
     open override func willMove(toSuperview newSuperview: UIView?) {
